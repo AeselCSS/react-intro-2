@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "../../styles/CreateArtistForm.css"
 
 export default function CreateArtistForm() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
-
+    const navigate = useNavigate();
+    
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const artist = { name, image };
@@ -16,9 +19,9 @@ export default function CreateArtistForm() {
             body: artistAsJson,
             headers: {"Content-Type": "application/json"}
         });
-
-        clearForm()
-
+        
+        clearForm();
+        navigate("/artists")
     }
 
     function clearForm() {
