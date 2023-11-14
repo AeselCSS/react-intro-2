@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import './styles/App.css'
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import Homepage from './components/pages/Homepage';
 import ArtistsDataPage from './components/pages/ArtistsDataPage';
 import CreateArtistForm from './components/pages/CreateArtistForm';
