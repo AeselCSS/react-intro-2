@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import ArtistTable from "./ArtistTable";
+import { PageLoader } from "./PageLoader";
 //import { fetchArtists } from "../../utils/datahandler.ts";
 
+type Artist = {
+    id: number;
+    name: string;
+    image: string;
+};
+
 export default function ArtistsDataPage() {
-    const [artists, setArtists] = useState([])
+    const [artists, setArtists] = useState<Artist[] | null>(null)
     console.log(artists);
     
-
     useEffect(() => {
         
 
@@ -23,5 +29,10 @@ export default function ArtistsDataPage() {
 
     }, []);
 
+    if (!artists) {
+        return <PageLoader/>
+    } 
+        
     return <ArtistTable artists={artists} />;
+    
 }
